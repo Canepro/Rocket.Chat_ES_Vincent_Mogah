@@ -1,9 +1,14 @@
 Get the room information via an API endpoint:
 
+Request:
+
 root@RocketChatVM:/home/azureuser# curl -H "X-Auth-Token: TlAZQZoFR2-lYvLe5Gn7N0FsXZRJtLfXGTqaUpAnpXZ" \
 >      -H "X-User-Id: 9itdhtmRMcH2FnceA" \
 >      -H "Content-type: application/json" \
 >      http://localhost:3000/api/v1/rooms.get
+
+Response:
+
 {"update":[{"_id":"GENERAL","ts":"2022-03-08T19:12:14.169Z","t":"c","name":"general","usernames":[],"usersCount":3,"default":true,"_updatedAt":"2022-03-09T08:48:24.094Z"}],"remove":[],"success":true}root@RocketChatVM:/home/azureuser# 
 root@RocketChatVM:/home/azureuser# 
 root@RocketChatVM:/home/azureuser# 
