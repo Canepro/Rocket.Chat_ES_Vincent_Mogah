@@ -2,16 +2,26 @@ Create a new user via an API endpoint:
 
 Used this command to get UserID and AuthToken:
 
+Request:
+
 root@RocketChatVM:/home/azureuser# 
 root@RocketChatVM:/home/azureuser# curl http://localhost:3000/api/v1/login \
 >      -d "user=canepro&password=Genimi123456"
+
+Response: 
+
 {"status":"success","data":{"userId":"9itdhtmRMcH2FnceA","authToken":"TlAZQZoFR2-lYvLe5Gn7N0FsXZRJtLfXGTqaUpAnpXZ","me":{"_id":"9itdhtmRMcH2FnceA","services":{"password":{"bcrypt":"$2b$10$cVhrxRsK8.eu0YII2vMgR.t9qp7OR6cT/FuJzvfr1k7V0fJfvFS5y"},"email2fa":{"enabled":true}},"emails":[{"address":"mogah.vincent@hotmail.com","verified":false}],"status":"away","active":true,"_updatedAt":"2022-03-09T08:44:31.198Z","roles":["user","admin","bot"],"name":"Vincent Mogah","statusConnection":"away","username":"canepro","avatarETag":"4HZxjoxgiC9RRjd8J","avatarOrigin":"gravatar","utcOffset":1,"avatarUrl":"https://chat.canepros.com/avatar/canepro","settings":{"preferences":{"enableAutoAway":true,"idleTimeLimit":300,"desktopNotificationRequireInteraction":false,"desktopNotifications":"all","pushNotifications":"all","unreadAlert":true,"useEmojis":true,"convertAsciiEmoji":true,"autoImageLoad":true,"saveMobileBandwidth":true,"collapseMediaByDefault":false,"hideUsernames":false,"hideRoles":false,"hideFlexTab":false,"displayAvatars":true,"sidebarGroupByType":true,"sidebarViewMode":"medium","sidebarDisplayAvatar":true,"sidebarShowUnread":false,"sidebarSortby":"activity","showMessageInMainThread":false,"sidebarShowFavorites":true,"sendOnEnter":"normal","messageViewMode":0,"emailNotificationMode":"mentions","newRoomNotification":"door","newMessageNotification":"chime","muteFocusedConversations":true,"notificationsSoundVolume":100,"enableMessageParserEarlyAdoption":false}}}}}
 
 Creating the user:
+
+Request:
 
 root@RocketChatVM:/home/azureuser# curl -H "X-Auth-Token: TlAZQZoFR2-lYvLe5Gn7N0FsXZRJtLfXGTqaUpAnpXZ" \
 >      -H "X-User-Id: 9itdhtmRMcH2FnceA" \
 >      -H "Content-type:application/json" \
 >      http://localhost:3000/api/v1/users.create \
 >      -d '{"name": "Cynthia", "email": "Cynthia@canepros.com", "password": "Password123456", "username": "Cynthia"}'
+
+Response:
+
 {"user":{"_id":"NCY6QTBRT9ELbbTt7","createdAt":"2022-03-09T09:27:18.722Z","username":"Cynthia","emails":[{"address":"Cynthia@canepros.com","verified":false}],"type":"user","status":"offline","active":true,"_updatedAt":"2022-03-09T09:27:18.809Z","__rooms":["GENERAL"],"roles":["user"],"name":"Cynthia","settings":{}},"success":true} 
